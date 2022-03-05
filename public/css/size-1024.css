@@ -1,0 +1,15 @@
+@media only screen and (max-width: 1024px) {
+    
+    .card-container {
+        max-width: 120rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3rem;
+    }
+
+    .section-header {
+        height: 70vw;
+    }
+}
+  

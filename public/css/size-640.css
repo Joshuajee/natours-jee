@@ -1,0 +1,121 @@
+@media only screen and (max-width: 640px) {
+
+    .header {
+        background-color: #444;
+        padding: 0 5rem;
+        height: 8rem;
+        position: relative;
+        z-index: 100;
+    }
+
+    .nav--user {
+        position: absolute;
+        top: 16px;
+        right: 4px;
+    }
+
+    .nav__user-img {
+        height: 50px;
+        width: 50px;
+    }
+    
+    .nav__el span {
+        display: none;
+    }
+
+    .nav__el--logout {
+        display: none;
+    }
+
+    .header__logo {
+        -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+        order: -1;
+    }
+
+    .card-container {
+        max-width: 120rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1rem;
+    }
+
+    .overview-box__detail {
+        font-size: 1.5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        font-weight: 400;
+    }
+
+    .overview-box__detail svg {
+        margin-right: 1.25rem;
+    }
+
+    .overview-box__detail:not(:last-child) {
+        margin-bottom: 2.25rem;
+    }
+
+    .section-header {
+        height: 70vw;
+    }
+
+    .header__hero {
+        height: 100%;
+    }
+  
+    .heading-primary {
+        font-size: 3rem;
+        text-align: center;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .section-description {
+        display: block;
+    }
+
+    .section-pictures {
+        display: block;
+    }
+
+    .cta {
+        padding: 0.9rem 0.5rem 0.9rem 2.1rem;
+    }
+
+    .cta__img, .cta__img--2 {
+        display: none
+    }
+
+    .cta__content {
+        width: 100%;
+        display: block;
+    }
+
+    .main {
+        padding: 4rem 1rem;
+    }
+
+    .auth-form {
+        margin: 0 auto;
+        max-width: 55rem;
+        background-color: #fff;
+        padding: 2rem 4rem;
+        border-radius: 5px;
+    }
+     
+    .nav--logout {
+        position: absolute;
+        display: block;
+        background-color: white;
+        top: 50px;
+        right: 20px;
+        color: black;
+    }
+  
+}
+  

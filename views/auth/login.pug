@@ -1,0 +1,29 @@
+extends ../base
+
+block content
+  main.main
+    .auth-form
+      h2.heading-secondary.ma-bt-lg Log into your account
+      .center
+        .social_login.google
+          img(src='/img/btn_google.svg')
+          p Login With Google
+      .center
+        p OR 
+
+      form.form.form--login
+        .form__group
+          label.form__label(for='email') Email address
+          input#email.form__input(type='email', placeholder='you@example.com', required)
+        .form__group.ma-bt-md
+          label.form__label(for='password') Password
+          input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__group
+          button.btn.btn--green Login
+        .form__group 
+          .left
+            p Dont have an account
+              a(href='/sign-up') Sign Up 
+        .form__group 
+          .left
+            a(href='/forgot') Forgot Password? 
