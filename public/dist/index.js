@@ -528,11 +528,16 @@ var _alerts = require("./alerts");
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
+const forgotForm = document.querySelector('.form--forgot');
 const signUpForm = document.querySelector('.form--sign-up');
-const logOutBtn = document.querySelector('.nav__el--logout');
+const logOutBtn = document.querySelectorAll('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
+const menu = document.querySelector('.menu');
+const closebtn = document.querySelector('.closebtn');
+const showMenu = document.querySelector('.show-menu');
+const hideMenu = document.querySelector('.hide-menu');
 // DELEGATION
 if (mapBox) {
     const locations = JSON.parse(mapBox.dataset.locations);
@@ -544,7 +549,8 @@ if (loginForm) loginForm.addEventListener('submit', (e)=>{
     const password = document.getElementById('password').value;
     _auth.login(email, password);
 });
-if (logOutBtn) logOutBtn.addEventListener('click', _auth.logout);
+if (logOutBtn) logOutBtn.forEach((e)=>e.addEventListener('click', _auth.logout)
+);
 if (signUpForm) signUpForm.addEventListener('submit', (e)=>{
     e.preventDefault();
     const name = document.getElementById('name').value;
@@ -584,6 +590,22 @@ if (bookBtn) bookBtn.addEventListener('click', (e)=>{
 });
 const alertMessage = document.querySelector('body').dataset.alert;
 if (alertMessage) _alerts.showAlert('success', alertMessage, 20);
+if (menu) menu.addEventListener('click', ()=>{
+    document.getElementById("mySidenav").style.width = "250px";
+});
+if (closebtn) closebtn.addEventListener('click', ()=>{
+    document.getElementById("mySidenav").style.width = "0";
+});
+if (showMenu) showMenu.addEventListener('click', ()=>{
+    document.querySelector(".user-view__menu").style.display = "block";
+    document.querySelector(".show-menu").style.display = "none";
+    document.querySelector(".hide-menu").style.display = "block";
+});
+if (hideMenu) hideMenu.addEventListener('click', ()=>{
+    document.querySelector(".user-view__menu").style.display = "none";
+    document.querySelector(".show-menu").style.display = "block";
+    document.querySelector(".hide-menu").style.display = "none";
+});
 
 },{"@babel/polyfill":"dTCHC","./mapbox":"3zDlz","./updateSettings":"l3cGY","./stripe":"10tSC","./alerts":"6Mcnf","./auth":"fov0Z"}],"dTCHC":[function(require,module,exports) {
 "use strict";

@@ -7,29 +7,24 @@ module.exports = class Email {
     this.to = user.email;
     this.firstName = user.name.split(' ')[0];
     this.url = url;
-    this.from = `Jonas Schmedtmann <${process.env.EMAIL_FROM}>`;
+    this.from = `${process.env.EMAIL_FROM}`;
   }
 
   newTransport() {
     if (process.env.NODE_ENV === 'production') {
       // Sendgrid
+
+      console.log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+
       return nodemailer.createTransport({
-        service: 'SendGrid',
+        host: process.env.EMAIL_HOST_PROD,
+        port: process.env.EMAIL_PORT_PROD,
         auth: {
-          user: process.env.SENDGRID_USERNAME,
-          pass: process.env.SENDGRID_PASSWORD
+          user: process.env.EMAIL_USERNAME_PROD,
+          pass: process.env.EMAIL_PASSWORD_PROD
         }
       });
     }
-
-    return nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: process.env.EMAIL_PORT,
-      auth: {
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD
-      }
-    });
   }
 
   // Send the actual email

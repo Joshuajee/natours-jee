@@ -11,10 +11,14 @@ const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
 const forgotForm = document.querySelector('.form--forgot');
 const signUpForm = document.querySelector('.form--sign-up');
-const logOutBtn = document.querySelector('.nav__el--logout');
+const logOutBtn = document.querySelectorAll('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
+const menu = document.querySelector('.menu');
+const closebtn = document.querySelector('.closebtn');
+const showMenu = document.querySelector('.show-menu');
+const hideMenu = document.querySelector('.hide-menu');
 
 
 // DELEGATION
@@ -31,7 +35,9 @@ if (loginForm)
     login(email, password);
   });
 
-if (logOutBtn) logOutBtn.addEventListener('click', logout);
+if (logOutBtn) {
+  logOutBtn.forEach(e => e.addEventListener('click', logout));
+}
 
 if (signUpForm)
   signUpForm.addEventListener('submit', e => {
@@ -82,3 +88,31 @@ if (bookBtn)
 
 const alertMessage = document.querySelector('body').dataset.alert;
 if (alertMessage) showAlert('success', alertMessage, 20);
+
+if(menu) {
+  menu.addEventListener('click', () => {
+    document.getElementById("mySidenav").style.width = "250px";
+  })
+}
+
+if(closebtn) {
+  closebtn.addEventListener('click', () => {
+    document.getElementById("mySidenav").style.width = "0";
+  })
+}
+
+if (showMenu) {
+  showMenu.addEventListener('click', () => {
+    document.querySelector(".user-view__menu").style.display = "block";
+    document.querySelector(".show-menu").style.display = "none";
+    document.querySelector(".hide-menu").style.display = "block";
+  })
+}
+
+if (hideMenu) {
+  hideMenu.addEventListener('click', () => {
+    document.querySelector(".user-view__menu").style.display = "none";
+    document.querySelector(".show-menu").style.display = "block";
+    document.querySelector(".hide-menu").style.display = "none";
+  })
+}

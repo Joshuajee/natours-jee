@@ -9,8 +9,21 @@ header.header
       a.nav__el(href='/me')
         img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
         span= user.name.split(' ')[0]
-      .nav--logout  
-        a.nav__el--logou Log out
     else
       a.nav__el(href='/login') Log in
       a.nav__el.nav__el--cta(href='/sign-up') Sign up
+  span.menu &#x2630;
+  nav#mySidenav.sidenav
+    a.closebtn &times;
+    if user
+      .profile
+        a.nav__el.user_container(href='/me')
+          img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
+        a.nav__el.user_container(href='/me')
+          div= user.name
+      a.nav__el(href='/') All tours
+      a.nav__el.nav__el--logout Log out
+    else
+      a.nav__el(href='/') All tours
+      a.nav__el(href='/login') Log in
+      a.nav__el(href='/sign-up') Sign up

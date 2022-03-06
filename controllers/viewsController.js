@@ -1,8 +1,10 @@
 const Tour = require('../models/tourModel');
 const User = require('../models/userModel');
 const Booking = require('../models/bookingModel');
+const Review = require('../models/reviewModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+// const { Reviews } = require('stripe/lib/resources');
 
 exports.alerts = (req, res, next) => {
   const { alert } = req.query;
@@ -34,8 +36,6 @@ exports.getTour = catchAsync(async (req, res, next) => {
   if (!tour) {
     return next(new AppError('There is no tour with that name.', 404));
   }
-
-  console.log(tour)
 
   // 2) Build template
   // 3) Render template using data from 1)
@@ -71,7 +71,7 @@ exports.getResetForm = (req, res) => {
 };
 
 exports.getAccount = (req, res) => {
-  res.status(200).render('account', {
+  res.status(200).render('account/profile', {
     title: 'Your account'
   });
 };
@@ -87,6 +87,29 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
   res.status(200).render('overview', {
     title: 'My Tours',
     tours
+  });
+});
+
+exports.getMyReviews = catchAsync(async (req, res, next) => {
+
+  //const count = await Review.countDocuments({ user: req.user });
+
+  const count  = 0
+  const reviews = await Review.find({ user: req.user });
+
+  res.status(200).render('account/my-reviews', {
+    title: 'My Reviews',
+    reviews,
+    count
+  });
+
+
+});
+
+exports.getBillings = catchAsync(async (req, res, next) => {
+
+  res.status(200).render('account/billings', {
+    title: 'Billings',
   });
 });
 

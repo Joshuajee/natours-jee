@@ -315,6 +315,7 @@ body {
   align-items: center;
 }
 
+/*
 @media only screen and (max-width: 62.5em) {
   .header {
     -webkit-box-orient: vertical;
@@ -323,11 +324,13 @@ body {
     flex-direction: column;
   }
 }
+*/
 
 .header__logo img {
   height: 3.5rem;
 }
 
+/*
 @media only screen and (max-width: 62.5em) {
   .header__logo {
     -webkit-box-ordinal-group: 0;
@@ -336,6 +339,7 @@ body {
     margin-bottom: 1.5rem;
   }
 }
+*/
 
 .section-header {
   position: relative;
@@ -353,6 +357,7 @@ body {
     0 100%
   );
 }
+
 
 .header__hero {
   height: 100%;

@@ -11,5 +11,13 @@
     .section-header {
         height: 70vw;
     }
+
+    .user-view__menu {
+        display: none;
+    }
+
+    .user-view__form-container {
+        padding: 0 4rem;
+    }
 }
   
