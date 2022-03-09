@@ -140,10 +140,6 @@
         display: none;
     }
 
-    .hide-menu {
-        display: none;
-    }
-
     .user-view__menu {
         flex: 30rem 0 0;
     }

@@ -19,5 +19,14 @@
     .user-view__form-container {
         padding: 0 4rem;
     }
+
+    .show-menu {
+        display: block;
+    }
+
+    .hide-menu {
+        display: none;
+    }
+
 }
   

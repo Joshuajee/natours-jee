@@ -24,4 +24,11 @@ router.get('/my-reviews', authController.protect, viewsController.getMyReviews);
 
 router.get('/billings', authController.protect, viewsController.getBillings);
 
+
+router.get('/about-us', authController.protect, viewsController.getAboutUs);
+router.get('/download-app', authController.protect, viewsController.getDownload);
+router.get('/become-a-guide', authController.protect, viewsController.getBecomeAGuide);
+router.get('/careers', authController.protect, viewsController.getCareers);
+router.get('/contact', authController.protect, viewsController.getContact);
+
 module.exports = router;

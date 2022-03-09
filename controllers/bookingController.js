@@ -4,11 +4,23 @@ const User = require('../models/userModel');
 const Booking = require('../models/bookingModel');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
+const AppError = require('../utils/appError');
+
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
+
+  const { tourId } = req.params;
   // 1) Get the currently booked tour
-  const tour = await Tour.findById(req.params.tourId);
-  // console.log(tour);
+  const tour = await Tour.findById(tourId);
+
+  // console.log(await Tour.find({_id: String(tourId)}))
+  //console.log(await Tour.findOne({slug: 'the-star-gazer'}))
+  console.log(tourId.toString())
+  console.log(String(tourId))
+  console.log(tour)
+
+  if (!tour) 
+    return next(new AppError("Tour Not Found", 404));
 
   // 2) Create checkout session
   const session = await stripe.checkout.sessions.create({

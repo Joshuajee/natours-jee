@@ -84,7 +84,7 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
   const tourIDs = bookings.map(el => el.tour);
   const tours = await Tour.find({ _id: { $in: tourIDs } });
 
-  res.status(200).render('overview', {
+  res.status(200).render('account/my-tours', {
     title: 'My Tours',
     tours
   });
@@ -92,19 +92,19 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
 
 exports.getMyReviews = catchAsync(async (req, res, next) => {
 
-  //const count = await Review.countDocuments({ user: req.user });
+  const count = await Review.countDocuments({ user: req.user });
 
-  const count  = 0
   const reviews = await Review.find({ user: req.user });
 
-  res.status(200).render('account/my-reviews', {
+  res.status(200).render('account/myReviews', {
     title: 'My Reviews',
     reviews,
-    count
+    count,
+    hasReviews: (count > 0) ? true : false
   });
 
-
 });
+
 
 exports.getBillings = catchAsync(async (req, res, next) => {
 
@@ -129,5 +129,46 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
   res.status(200).render('account', {
     title: 'Your account',
     user: updatedUser
+  });
+});
+
+
+//pages
+
+exports.getAboutUs = catchAsync(async (req, res, next) => {
+
+  res.status(200).render('pages/about', {
+    title: 'About Us',
+  });
+});
+
+exports.getDownload = catchAsync(async (req, res, next) => {
+
+  res.status(200).render('pages/downloads', {
+    title: 'Downloads',
+  });
+});
+
+
+exports.getBecomeAGuide = catchAsync(async (req, res, next) => {
+
+  res.status(200).render('pages/become-a-guide', {
+    title: 'Become A guide',
+  });
+});
+
+
+exports.getCareers = catchAsync(async (req, res, next) => {
+
+  res.status(200).render('pages/careers', {
+    title: 'Careers',
+  });
+});
+
+
+exports.getContact = catchAsync(async (req, res, next) => {
+
+  res.status(200).render('pages/contact', {
+    title: 'Contact',
   });
 });

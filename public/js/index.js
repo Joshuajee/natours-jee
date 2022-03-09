@@ -20,6 +20,9 @@ const closebtn = document.querySelector('.closebtn');
 const showMenu = document.querySelector('.show-menu');
 const hideMenu = document.querySelector('.hide-menu');
 
+const rootDiv = document.querySelector('.root-div');
+const loader = document.querySelector('.pre-loader');
+
 
 // DELEGATION
 if (mapBox) {
@@ -116,3 +119,16 @@ if (hideMenu) {
     document.querySelector(".hide-menu").style.display = "none";
   })
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+
+  rootDiv.style.display = "none";
+  loader.style.display = "flex";
+});
+
+window.addEventListener('load', function() {
+
+  rootDiv.style.display = "block";
+  loader.style.display = "none";
+}, false);
+
